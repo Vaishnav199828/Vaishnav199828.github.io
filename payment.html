@@ -1,0 +1,159 @@
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Unit</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
+     <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery.mobile-1.3.2.min.js"></script> 
+  <script type="text/javascript" src="unity.js"></script>  
+  <script type="text/javascript" src="iscroll.js"></script> 
+  <style>
+    div {
+      margin-bottom: 10px;
+    }
+    label {
+      display: inline-block;
+      width: 150px;
+      font-size: 150%;
+    }
+
+    body {
+  background-color:skyblue ;
+ 
+
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+  font-size: 200%;
+}
+body { 
+  background-image: url('img/kseb-seeklogo.com.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 70% 80%;
+  background-position: center; 
+  backdrop-filter: blur(5px);
+}
+
+  </style>
+
+    </script>
+</head>
+<body>
+
+	<table border='0' width='480px' cellpadding='0' cellspacing='0' align='center'>
+    <center><tr>
+ <div data-role="page" id="page1">
+  <div class="header" id="header" data-theme="a" data-role="header">
+    <h3 align='center'>Payment</h3>
+  </div>
+  </tr>
+  </center>
+
+   <div id="wrapper">
+ <form action="" name="unit">
+  <div data-role="content">
+   <div class="" data-role="fieldcontain">
+
+  <tr>
+  <td> 	
+<div class="form-group col-lg-6">
+    <label align='center' for="exampleInputText"><b>Total Unit</b></label>
+    <input type="text" step="any" name="totalval"  placeholder="enter the total unit" class="form-control" id="totalval" onchange="updateDue()">
+</div>
+</td>  
+</tr>
+
+<tr> <td>&nbsp;</td> </tr>
+
+
+
+<tr>
+<td>
+<div class="form-group col-lg-6">
+  <P style="text-align:center">C.P Unit = Charge Per Unit</P>
+    <label align='center' for="exampleInputText"><b>C.P Unit</b></label>
+    <input type="text" step="any" value="4.80" name="inideposit"  id="inideposit" onchange="updateDue()">
+</div>
+</td>  
+</tr>
+
+<tr> <td>&nbsp;</td> </tr>
+
+
+
+<tr>
+<td>
+<div>
+    <label align='center' for="exampleInputText"><b>Total Amount</b></label>
+    <input type="text" step="any"  name="remainingval" class="form-control" id="remainingval">
+</div>	
+</td>  
+</tr>
+
+<tr> <td>&nbsp;</td> </tr>
+
+
+   
+
+  
+
+
+    <td align='center'>
+      <p style="text-align:center;"> </align>Click on Payment TO Pay</p>
+   <input id="payment" value="Pay" type="button" name="Payment" >
+  </td>
+   </tr>
+
+
+
+
+  
+
+  
+    
+<script type="text/javascript">
+function updateDue(tx) {
+
+var total = parseFloat(document.getElementById("totalval").value);
+var val2 = parseFloat(document.getElementById("inideposit").value);
+
+
+// to make sure that they are numbers
+if (!total) { total = 0; }
+if (!val2) { val2 = 4.80; }
+
+var ansD = document.getElementById("remainingval");
+ansD.value = total * 4.80;
+
+
+}
+
+   
+   
+   
+document.getElementById("result").innerHTML = total * val2;
+
+function validationcheck() {
+   
+   if (document.unit.totalval.value == "") {
+    alert("Please Enter Current Unit.");
+    document.unit.totalval.focus(); 
+   } else if (document.unit.lname.value == "") {
+    alert("Please Enter Previous Unit.");
+    document.unit.inideposit.focus(); 
+   }
+   else
+    {
+      success();
+    }
+  }
+
+function success(){
+   onDeviceReady();
+  }
+</script>
+</body>
+</html>
